@@ -1,0 +1,2 @@
+# Microgame Madness (WarioWare)
+ 

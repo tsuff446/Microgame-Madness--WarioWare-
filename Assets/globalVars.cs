@@ -17,6 +17,8 @@ public class globalVars
         "Heat it up!",
         "Defend!",
         "Wait for Green!",
-        "Balance!"
+        "Balance!",
+        "Pump the Balloon"
     };
+    public static int numPlayers = 2;
 }

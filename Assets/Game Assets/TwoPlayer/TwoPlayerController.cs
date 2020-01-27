@@ -7,11 +7,18 @@ public class TwoPlayerController : MonoBehaviour
     public int playerNum = 1;
     private Rigidbody2D rb;
     private Transform tm;
+    private GameObject player;
+    private GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        tm = GetComponent<Transform>();
+        player = GetComponent<Transform>().GetChild(0).gameObject;
+        rb = player.GetComponent<Rigidbody2D>();
+        tm = player.GetComponent<Transform>();
+        if(playerNum > globalVars.numPlayers)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame

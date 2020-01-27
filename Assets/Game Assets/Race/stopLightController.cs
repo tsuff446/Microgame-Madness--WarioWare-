@@ -77,12 +77,12 @@ public class stopLightController : MonoBehaviour
         //getting user input from space and arrow keys
         if(Input.GetAxis("Horizontal") > 0 || Input.GetKey("space") && playerCar.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
         {
-            if(animTime >= raceStartTime)
+            if(animTime >= raceStartTime && !gameOver)
             {
                 playerCar.GetComponent<Rigidbody2D>().velocity = new Vector3(carSpeed, 0, 0);
                 source.PlayOneShot(carVroom, 1f);
             }
-            else
+            else if(!gameOver)
             {
                 playerCar.GetComponent<Rigidbody2D>().velocity = new Vector3(.1f, 0, 0);
                 source.PlayOneShot(crowdBoo, 1f);

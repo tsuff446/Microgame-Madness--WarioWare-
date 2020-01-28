@@ -9,6 +9,9 @@ public class benplayer : MonoBehaviour
     float hori;
     public float speed;
     Vector3 pos;
+    //generosity is the distance the player can be from the arrow and still win
+    public float generosity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class benplayer : MonoBehaviour
         rb.velocity = new Vector2(hori * speed, 0f);
         if (spike.spiked)
         {
-            if (((pos.x > (Arrow.pos.x + 1.5)) || (pos.x < (Arrow.pos.x - 1.5)))&&globalVars.win)
+            if (((pos.x > (Arrow.pos.x + generosity)) || (pos.x < (Arrow.pos.x - generosity)))&&globalVars.win)
             {
                 transform.position = new Vector3(100, 100, 100);
                 Ben_main.gameLost();

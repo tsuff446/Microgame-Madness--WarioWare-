@@ -15,6 +15,8 @@ public class benplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<SpriteRenderer> ().material.color = new Color(Random.value*1.5f,Random.value*2.9f,Random.value*2.8f,1.0f);
+        
         pos = transform.position;
         globalVars.win = true;
         rb = GetComponent<Rigidbody2D>();

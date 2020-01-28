@@ -14,9 +14,12 @@ public class Arrow : MonoBehaviour
     public float center;
     bool done;
     float time;
+    private AudioSource source;
+    public AudioClip arrownoise;
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         if (globalVars.difficulty > 4)
         {
             time = 2;
@@ -36,6 +39,7 @@ public class Arrow : MonoBehaviour
             pos = new Vector3((float)((spacing * (double)positionvalue) + center), targetheight, 0);
             transform.position = pos;
             done = true;
+            source.PlayOneShot(arrownoise, 1f);
         }
     }
     

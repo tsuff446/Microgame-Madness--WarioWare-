@@ -143,9 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205a0c91aecbee4598a834cfe21ae69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idnum: 0
   pos: {x: 0, y: 0, z: 0}
   heightchange: 5.5
   spikenoise: {fileID: 8300000, guid: be95307e7f7869b41aabaeabe993c437, type: 3}
+  heightstart: -9
+  center: 0
+  spacing: 2.5
+  totalspikes: 8
 --- !u!82 &-7567252807499398706
 AudioSource:
   m_ObjectHideFlags: 0

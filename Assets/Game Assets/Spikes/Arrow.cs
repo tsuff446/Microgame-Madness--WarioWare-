@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public static Vector3 pos;
-    float positionvalue;
+    public float positionvalue;
     //targetheight is the y value you want the arrow to be at
     public float targetheight;
     //spacing is the distance between the possible positions for the arrow, there is 8 positions evenly divided

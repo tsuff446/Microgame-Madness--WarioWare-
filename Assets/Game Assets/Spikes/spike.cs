@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class spike : MonoBehaviour
 {
+    //idnum should be set to 1-8 for each of the 8 spikes on screen
+    public int idnum;
     //spiked is true if the spikes have risen
     public static bool spiked;
     public Vector3 pos;
@@ -12,10 +14,15 @@ public class spike : MonoBehaviour
     // Start is called before the first frame update
     private AudioSource source;
     public AudioClip spikenoise;
+    public float heightstart;
+    public float center;
+    public float spacing;
+    public float totalspikes;
     void Start()
     {
         spiked = false;
-        pos = transform.position;
+        pos = new Vector3((idnum - (totalspikes/2) - 0.5f) * spacing + center, heightstart, 0);
+        transform.position = pos;
         source = GetComponent<AudioSource>();
     }
 

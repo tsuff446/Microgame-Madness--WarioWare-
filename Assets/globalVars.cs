@@ -20,5 +20,5 @@ public class globalVars
         "Balance!",
         "Pump the Balloon"
     };
-    public static int numPlayers = 2;
+    public static int numPlayers = 4;
 }

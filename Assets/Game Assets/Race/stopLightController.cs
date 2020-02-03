@@ -75,7 +75,7 @@ public class stopLightController : MonoBehaviour
         }
 
         //getting user input from space and arrow keys
-        if(Input.GetAxis("Horizontal") > 0 || Input.GetKey("space") && playerCar.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
+        if(Input.GetAxis("Horizontal") > 0 || Input.GetButtonDown("Action") && playerCar.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
         {
             if(animTime >= raceStartTime && !gameOver)
             {

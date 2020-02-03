@@ -107,7 +107,7 @@ public class FrictionGameMain : MonoBehaviour
         }
 
         // getting input
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Action"))
         {
             spaceCount++;
             topV = -1 * topV;

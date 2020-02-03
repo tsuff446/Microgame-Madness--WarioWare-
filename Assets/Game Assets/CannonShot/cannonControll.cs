@@ -92,7 +92,7 @@ public class cannonControll : MonoBehaviour
 
 
 
-        if (!fired && Input.GetKey("space"))
+        if (!fired && Input.GetButtonDown("Action"))
         {
             for (int i = 0; i < retNum; i++)
             {

@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 7703404038934773944, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}
       propertyPath: minTime
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7703404038934773947, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}
@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 1427468262}
   - component: {fileID: 1427468261}
   - component: {fileID: 1427468260}
+  - component: {fileID: 1427468265}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -292,7 +293,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -422,6 +423,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0.047, y: 1.273}
   m_SizeDelta: {x: 21.769, y: 7.224}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1427468265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427468259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d5ec91ecc8e804daa4cf4538dc7b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2073569075
 GameObject:
   m_ObjectHideFlags: 0

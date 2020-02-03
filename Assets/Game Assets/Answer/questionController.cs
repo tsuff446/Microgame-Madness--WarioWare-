@@ -34,8 +34,8 @@ public class questionController : MonoBehaviour
         string[] wrongAnswers =
         {
             fakeDate.ToString("d"),
-            UnityEngine.Random.Range(0, (randNum1+randNum2)).ToString(),
-            UnityEngine.Random.Range(0, ((randNum1%10)*(randNum2%10))).ToString(),
+            UnityEngine.Random.Range((randNum1+randNum2)*.80f, (randNum1+randNum2)*1.2f).ToString(),
+            UnityEngine.Random.Range(((randNum1%10)*(randNum2%10))*.80f, ((randNum1%10)*(randNum2%10))*1.2f).ToString(),
             fakeDate.ToString("dddd")
         };
         questionBox = GetComponent<TextMeshPro>();

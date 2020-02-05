@@ -10,14 +10,16 @@ public class Target : MonoBehaviour
     public float speed;
     public float sizex;
     public float sizey;
+    public float startx;
+    public float starty;
     // Start is called before the first frame update
     void Start()
     {
         pos = transform.position;
-        transform.position = new Vector2(pos.x + Random.Range(-sizex,sizex), pos.y + Random.Range(-sizey,sizey));
+        transform.position = new Vector2(startx + Random.Range(-sizex,sizex), starty + Random.Range(-sizey,sizey));
         rb = GetComponent<Rigidbody2D>();
         tm = GetComponent<Transform>();
-        rb.velocity = new Vector2(globalVars.difficulty*speed*(Random.Range(1,3)*2-3), globalVars.difficulty * speed*(Random.Range(1, 3) * 2 - 3));
+        rb.velocity = new Vector2(globalVars.difficulty * .25f * speed * (Random.Range(1, 3) * 2 - 3), globalVars.difficulty * .25f * speed * (Random.Range(1, 3) * 2 - 3));
     }
 
     // Update is called once per frame

@@ -13,17 +13,23 @@ public class Cursor : MonoBehaviour
     public float generosity;
     public float sizex;
     public float sizey;
+    public float startx;
+    public float starty;
     bool shot;
+    BoxCollider2D offset;
+    float offsetx;
+    float offsety;
     private AudioSource source;
     public AudioClip winning;
     public AudioClip losing;
     // Start is called before the first frame update
     void Start()
     {
+        offset = GetComponent<BoxCollider2D>();
         source = GetComponent<AudioSource>();
         shot = false;
         pos = transform.position;
-        transform.position = new Vector2(pos.x + Random.Range(-sizex, sizex), pos.y + Random.Range(-sizey, sizey));
+        transform.position = new Vector2(startx + Random.Range(-sizex, sizex), starty + Random.Range(-sizey, sizey));
         globalVars.win = false;
         rb = GetComponent<Rigidbody2D>();
         tm = GetComponent<Transform>();
@@ -42,7 +48,9 @@ public class Cursor : MonoBehaviour
                 shot = true;
                 rb.velocity = new Vector2(0, 0);
                 pos = transform.position;
-                if ((Mathf.Abs(pos.x - Target.pos.x) < generosity) && (Mathf.Abs(pos.y - Target.pos.y) < generosity))
+                offsetx = offset.bounds.center.x;
+                offsety = offset.bounds.center.y;
+                if (Mathf.Pow((Mathf.Abs(offsetx - Target.pos.x)),2) + Mathf.Pow((Mathf.Abs(offsety - Target.pos.y)),2) < Mathf.Pow(generosity,2))
                 {
                     source.PlayOneShot(winning, 1f);
                     TargetMain.gameWon();

@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Brick
   - Collectible
+  - Horizontal wall
+  - Vertical Wall
   layers:
   - Default
   - TransparentFX

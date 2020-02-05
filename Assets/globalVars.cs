@@ -19,7 +19,8 @@ public class globalVars
         "Wait for Green!",
         "Balance!",
         "Pump the Balloon",
-        "Watch Out!"
+        "Watch Out!",
+        "Hit the Target"
     };
     public static int numPlayers = 2;
 }

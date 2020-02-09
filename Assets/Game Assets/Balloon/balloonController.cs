@@ -27,6 +27,17 @@ public class balloonController : MonoBehaviour
         pumpTop = GameObject.Find("pump").transform.GetChild(0).gameObject;
         topHeight = pumpTop.GetComponent<SpriteRenderer>().bounds.size.y;
         balloonAudio = GetComponent<AudioSource>();
+        if(globalVars.difficulty < 2f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }else if(globalVars.difficulty < 4f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     // Update is called once per frame

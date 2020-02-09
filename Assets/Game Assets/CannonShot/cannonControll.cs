@@ -6,7 +6,7 @@ public class cannonControll : MonoBehaviour
 {
     private Transform tm;
     private float verti = 0f;
-    private float turnRate = .12f;
+    private float turnRate = .18f;
     private float ballVelocity = 15f;
     public GameObject targetObj;
     public GameObject cannonBall;
@@ -56,6 +56,7 @@ public class cannonControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Input.GetAxis("Vertical"));
         zRad = tm.rotation.eulerAngles.z * (Mathf.PI / 180f);
         tfin = ((2 / g) * ballVelocity * Mathf.Sin(zRad));
         verti = Input.GetAxis("Vertical");

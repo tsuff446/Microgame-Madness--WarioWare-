@@ -12,6 +12,7 @@ public class globalVars
     public static string[] gameDesc = {
         "Null",
         "Null",
+        "Null",
         "Hit Green!",
         "Break the Wall!",
         "Heat it up!",
@@ -19,7 +20,8 @@ public class globalVars
         "Wait for Green!",
         "Balance!",
         "Pump the Balloon",
-        "Watch Out!"
+        "Watch Out!",
+        "Answer!"
     };
     public static int numPlayers = 4;
 }

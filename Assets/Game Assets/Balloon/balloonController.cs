@@ -12,7 +12,8 @@ public class balloonController : MonoBehaviour
     private float topHeight;
     private float pumpSpeed;
     private int maxPump;
-    private int minPump = 15;
+    private int minPump = 12;
+    private bool popped;
 
     private AudioSource balloonAudio;
     public AudioClip pumpSound;
@@ -20,7 +21,8 @@ public class balloonController : MonoBehaviour
     void Start()
     {
         pumpSpeed = 5f;
-        maxPump = minPump + (int)globalVars.difficulty * 5;
+        popped = false;
+        maxPump = minPump + (int)globalVars.difficulty * 3;
         tm = GetComponent<Transform>();
         pumpTop = GameObject.Find("pump").transform.GetChild(0).gameObject;
         topHeight = pumpTop.GetComponent<SpriteRenderer>().bounds.size.y;
@@ -56,11 +58,12 @@ public class balloonController : MonoBehaviour
             pumpTop.transform.localPosition = new Vector3(0, -topHeight * 1 / 4, 0);
         }
 
-        if(count >= maxPump && !globalVars.win && !bombTimer.externEnd)
+        if(count >= maxPump && !popped)
         {
             BalloonGameMain.gameWon();
             GetComponent<SpriteRenderer>().enabled = false;
             balloonAudio.PlayOneShot(pop);
+            popped = true;
         }
     }
 }

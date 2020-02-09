@@ -29,16 +29,18 @@ public class stopLightController : MonoBehaviour
 
     private bool gameOver = false;
     private float gameOverTime = 0.0f;
+    private float speedup = 0f;
     void Start()
     {
-        raceStartTime = 5f - globalVars.difficulty / 25f;
+        raceStartTime = 5f - (globalVars.difficulty-1) / 3f;
+        speedup = 5f / raceStartTime;
         darkSquare1 = GameObject.Find("darkSquare1");
         darkSquare2 = GameObject.Find("darkSquare2");
         darkSquare3 = GameObject.Find("darkSquare3");
         animTime = 0.0f;
 
         source = GetComponent<AudioSource>();
-
+        source.pitch = speedup;
         compCar = GameObject.Find("CPUCar");
         playerCar = GameObject.Find("playerCar");
         finishLine = GameObject.Find("finishLine");

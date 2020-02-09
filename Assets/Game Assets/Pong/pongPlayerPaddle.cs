@@ -7,6 +7,8 @@ public class pongPlayerPaddle : MonoBehaviour
     private Transform tm;
     private Rigidbody2D rb;
     private float paddleSpeed = 6f;
+    private float verti;
+    private Vector3 pos;
     void Start()
     {
         tm = GetComponent<Transform>();
@@ -16,6 +18,11 @@ public class pongPlayerPaddle : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector3(0, paddleSpeed * Input.GetAxis("Vertical"),0);
+        pos = tm.position;
+        verti = Input.GetAxis("Vertical");
+        if (!(pos.y + (Mathf.Sign(verti) * .1f) > 3.75f) && !(pos.y + Mathf.Sign(verti) * .1f < -3.75f))
+            rb.velocity = new Vector2(0, paddleSpeed * Input.GetAxis("Vertical"));
+        else
+            rb.velocity = Vector2.zero;
     }
 }

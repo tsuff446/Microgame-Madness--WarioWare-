@@ -6,7 +6,7 @@ public class cannonControll : MonoBehaviour
 {
     private Transform tm;
     private float verti = 0f;
-    private float turnRate = .2f;
+    private float turnRate = .12f;
     private float ballVelocity = 15f;
     public GameObject targetObj;
     public GameObject cannonBall;

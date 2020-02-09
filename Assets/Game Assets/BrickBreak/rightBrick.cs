@@ -11,13 +11,13 @@ public class rightBrick : MonoBehaviour
     private int height;
     void Start()
     {
-        if(globalVars.difficulty > 4)
+        if(globalVars.difficulty >= 8f)
         {
             height = 4;
         }
         else
         {
-            height = (int)(globalVars.difficulty);
+            height = (int)Mathf.Ceil(globalVars.difficulty/2f);
         }
         bricks = GameObject.FindGameObjectsWithTag("Brick");
         do

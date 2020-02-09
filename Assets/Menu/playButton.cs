@@ -48,6 +48,13 @@ public class playButton : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetButton("Action") && !clicked)
+        {
+            source.PlayOneShot(clip, 1f);
+            transition.transform.position = new Vector3(0, 0, 10);
+            transition.transform.localScale = new Vector3(30, 30, 1);
+            clicked = true;
+        }
         if (clicked)
         {
             timeElapsed += Time.deltaTime;

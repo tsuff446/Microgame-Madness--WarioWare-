@@ -23,6 +23,6 @@ public class pongPlayerPaddle : MonoBehaviour
         if (!(pos.y + (Mathf.Sign(verti) * .1f) > 3.75f) && !(pos.y + Mathf.Sign(verti) * .1f < -3.75f))
             rb.velocity = new Vector2(0, paddleSpeed * Input.GetAxis("Vertical"));
         else
-            rb.velocity = Vector2.zero;
+            tm.position = tm.position + new Vector3(0f, -.2f * Mathf.Sign(verti), 0f);
     }
 }

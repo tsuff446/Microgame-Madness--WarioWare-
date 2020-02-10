@@ -18,6 +18,7 @@ public class bombTimer : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("FPS:" + 1 / Time.deltaTime);
         exploded = false;
         externEnd = false;
         timeLeft = minTime + 2 / globalVars.difficulty;

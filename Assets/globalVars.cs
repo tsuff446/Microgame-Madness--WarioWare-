@@ -14,14 +14,14 @@ public class globalVars
         "Null",
         "Null",
         "Hit Green!",
-        "Break the Wall!",
+        "Hit the Crack!",
         "Heat it up!",
         "Defend!",
-        "Wait for Green!",
+        "Wait for Green Light!",
         "Balance!",
         "Pump the Balloon",
-        "Watch Out!",
-        "Answer!"
+        "Follow the Arrow!",
+        "Press if True!"
     };
     public static int numPlayers = 4;
 }

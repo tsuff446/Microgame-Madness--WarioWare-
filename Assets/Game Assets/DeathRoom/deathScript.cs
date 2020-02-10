@@ -21,7 +21,7 @@ public class deathScript : MonoBehaviour
     void Update()
     {
         timeCount += Time.deltaTime;
-        if(timeCount > 3f)
+        if(timeCount > 5f)
             SceneManager.LoadScene(0);
     }
 }

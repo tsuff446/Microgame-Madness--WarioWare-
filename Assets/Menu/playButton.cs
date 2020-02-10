@@ -13,8 +13,14 @@ public class playButton : MonoBehaviour
     private GameObject transition;
     private bool clicked;
 
+    public int targetFrameRate = 60;
+
+
+
     void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
         clicked = false;
         timeElapsed = 0f;
         tm = GetComponent<Transform>();

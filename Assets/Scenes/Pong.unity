@@ -646,7 +646,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.329071
+  orthographic size: 5.1474643
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -968,12 +968,12 @@ PrefabInstance:
     - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.059
       objectReference: {fileID: 0}
     - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.4
+      value: -7.057
       objectReference: {fileID: 0}
     - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}
@@ -1020,6 +1020,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23.115
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.314
+      objectReference: {fileID: 0}
     - target: {fileID: 8357093367564265511, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}
       propertyPath: m_Name
@@ -1042,7 +1052,7 @@ PrefabInstance:
     - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.4
+      value: 6.899
       objectReference: {fileID: 0}
     - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}
@@ -1088,6 +1098,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626031774306914250, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.998
       objectReference: {fileID: 0}
     - target: {fileID: 8357093367564265511, guid: 8e32d22c5ddf5c749a812cd4d58a7faf,
         type: 3}

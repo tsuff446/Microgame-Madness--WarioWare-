@@ -39,17 +39,20 @@ public class mainScript : MonoBehaviour
             box.text = "You Lost...";
             globalVars.lives--;
         }
-        if(globalVars.lives <= 0)
+        if (globalVars.lives <= 0)
         {
             SceneManager.LoadScene(2);
         }
-        //selects random scene to go to
-        index = Random.Range(3, SceneManager.sceneCountInBuildSettings);
-        speedup = globalVars.score / speedUpMult + 1f;
-        Debug.Log("Speedup:" + speedup.ToString());
-        source.pitch = speedup;
-        source.Play();
-        Debug.Log("Difficulty: " + globalVars.difficulty);
+        else
+        {
+            //selects random scene to go to
+            index = Random.Range(3, SceneManager.sceneCountInBuildSettings);
+            speedup = globalVars.score / speedUpMult + 1f;
+            Debug.Log("Speedup:" + speedup.ToString());
+            source.pitch = speedup;
+            source.Play();
+            Debug.Log("Difficulty: " + globalVars.difficulty);
+        }
     }
 
     private void FixedUpdate()

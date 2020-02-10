@@ -33,7 +33,7 @@ public class pongComputerPaddle : MonoBehaviour
             verti = -1;
         }
         if ((pos.y + (Mathf.Sign(verti) * .1f) > 3.75f) || (pos.y + Mathf.Sign(verti) * .1f < -3.75f))
-            rb.velocity = Vector2.zero;
+            rb.velocity = -rb.velocity;
         
             
     }

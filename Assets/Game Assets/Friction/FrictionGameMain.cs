@@ -47,7 +47,7 @@ public class FrictionGameMain : MonoBehaviour
         thermoRed = GameObject.Find("thermometerRed").gameObject;
         thermoP = thermoRed.transform.position;
         fillConst = 7;
-        maxCount = 30 + globalVars.difficulty * 6;
+        maxCount = 25 + globalVars.difficulty * 4;
 
         source = GetComponent<AudioSource>();
 

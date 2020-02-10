@@ -19,7 +19,7 @@ public class ball : MonoBehaviour
     {
         tm = GetComponent<Transform>();
         source = GetComponent<AudioSource>();
-        speed = speed * ( (globalVars.difficulty / 2) + .5f);
+        speed = speed * ( (globalVars.difficulty / 4) + .5f);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector3(0, -speed, 0);
     }

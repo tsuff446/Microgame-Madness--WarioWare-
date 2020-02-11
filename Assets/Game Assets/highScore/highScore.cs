@@ -55,7 +55,14 @@ public class highScore : MonoBehaviour
             {
                 changeScore = 3;
             }
-
+            for(int i = 3; changeScore !=0 && i > changeScore; i--)
+            {
+                if (PlayerPrefs.HasKey("Score" + (i-1).ToString()))
+                {
+                    PlayerPrefs.SetInt("Score" + i.ToString(), PlayerPrefs.GetInt("Score" + (i - 1).ToString()));
+                    PlayerPrefs.SetString("Name" + i.ToString(), PlayerPrefs.GetString("Name" + (i - 1).ToString()));
+                }
+            }
             PlayerPrefs.SetInt("Score" + changeScore.ToString(), playerScore);
             PlayerPrefs.SetString("Name" + changeScore.ToString(), ""+letters[0] + letters[1] + letters[2]);
             SceneManager.LoadScene(4);

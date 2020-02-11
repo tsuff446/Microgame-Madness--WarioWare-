@@ -46,7 +46,7 @@ public class mainScript : MonoBehaviour
             
         }
             //selects random scene to go to
-            index = Random.Range(5, 5+globalVars.gameDesc.Length - 1);
+            index = Random.Range(5, 5+globalVars.gameDesc.Length);
             gameIndex = index - 5;
             speedup = globalVars.score / speedUpMult + 1f;
             Debug.Log("Speedup:" + speedup.ToString());

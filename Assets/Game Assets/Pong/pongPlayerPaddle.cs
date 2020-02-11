@@ -20,9 +20,14 @@ public class pongPlayerPaddle : MonoBehaviour
     {
         pos = tm.position;
         verti = Input.GetAxis("Vertical");
-        if (!(pos.y + (Mathf.Sign(verti) * .1f) > 3.75f) && !(pos.y + Mathf.Sign(verti) * .1f < -3.75f))
-            rb.velocity = new Vector2(0, paddleSpeed * Input.GetAxis("Vertical"));
-        else
-            tm.position = tm.position + new Vector3(0f, -.2f * Mathf.Sign(verti), 0f);
+        rb.velocity = new Vector2(0, paddleSpeed * Input.GetAxis("Vertical"));
+        if (pos.y > 3.75f)
+        {
+            tm.position = new Vector3(tm.position.x, 3.75f, 0f);
+        }
+        if (pos.y < -3.75f)
+        {
+            tm.position = new Vector3(tm.position.x, -3.75f, 0f);
+        }
     }
 }

@@ -10,9 +10,6 @@ public class globalVars
     public static int score = 0;
     public static int lives = 3;
     public static string[] gameDesc = {
-        "Null",
-        "Null",
-        "Null",
         "Hit Green!",
         "Hit the Crack!",
         "Heat it up!",

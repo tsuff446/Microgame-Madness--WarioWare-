@@ -30,6 +30,8 @@ public class stopLightController : MonoBehaviour
     private bool gameOver = false;
     private float gameOverTime = 0.0f;
     private float speedup = 0f;
+
+    private bool soundPlayed = false;
     void Start()
     {
         raceStartTime = 5f - (globalVars.difficulty-1) / 3f;
@@ -82,7 +84,11 @@ public class stopLightController : MonoBehaviour
             if(animTime >= raceStartTime && !gameOver)
             {
                 playerCar.GetComponent<Rigidbody2D>().velocity = new Vector3(carSpeed, 0, 0);
-                source.PlayOneShot(carVroom, 1f);
+                if (soundPlayed == false)
+                {
+                    source.PlayOneShot(carVroom, 1f);
+                    soundPlayed = true;
+                }
             }
             else if(!gameOver)
             {

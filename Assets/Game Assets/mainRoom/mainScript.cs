@@ -12,6 +12,7 @@ public class mainScript : MonoBehaviour
     private TextMeshPro box;
     public float diffInc;
     private float speedup;
+    private int gameIndex;
     private float speedUpMult = 4;
     void Start()
     {
@@ -36,23 +37,22 @@ public class mainScript : MonoBehaviour
         }
         else
         {
-            box.text = "You Lost...";
             globalVars.lives--;
+            if (globalVars.lives <= 0)
+            {
+                SceneManager.LoadScene(2);
+            }else
+            box.text = "You Lost...";
+            
         }
-        if (globalVars.lives <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
-        else
-        {
             //selects random scene to go to
-            index = Random.Range(3, SceneManager.sceneCountInBuildSettings);
+            index = Random.Range(5, 5+globalVars.gameDesc.Length - 1);
+            gameIndex = index - 5;
             speedup = globalVars.score / speedUpMult + 1f;
             Debug.Log("Speedup:" + speedup.ToString());
             source.pitch = speedup;
             source.Play();
             Debug.Log("Difficulty: " + globalVars.difficulty);
-        }
     }
 
     private void FixedUpdate()
@@ -67,7 +67,7 @@ public class mainScript : MonoBehaviour
         else if (timer >= 8f / speedup)
         {
             // large cause of errors: when you add a new game make SURE to add a game description string to the array in globalVars
-            box.text = globalVars.gameDesc[index];
+            box.text = globalVars.gameDesc[gameIndex];
         }
         else if (timer >= 5.25f / speedup)
         {

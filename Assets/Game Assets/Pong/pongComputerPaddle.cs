@@ -25,16 +25,17 @@ public class pongComputerPaddle : MonoBehaviour
         if(tm.position.y < ball.transform.position.y)
         {
             rb.velocity = new Vector3(0, paddleSpeed, 0);
-            verti = 1;
         }
         else
         {
             rb.velocity = new Vector3(0, -paddleSpeed, 0);
-            verti = -1;
         }
-        if ((pos.y + (Mathf.Sign(verti) * .1f) > 3.75f) || (pos.y + Mathf.Sign(verti) * .1f < -3.75f))
-            rb.velocity = -rb.velocity;
-        
-            
+        if (pos.y > 3.75f){
+            tm.position = new Vector3(tm.position.x, 3.75f, 0f);
+        }
+        if (pos.y < -3.75f)
+        {
+            tm.position = new Vector3(tm.position.x, -3.75f, 0f);
+        }
     }
 }

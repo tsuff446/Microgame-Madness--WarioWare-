@@ -7,7 +7,7 @@ public class ball : MonoBehaviour
     private Rigidbody2D rb;
     private Rigidbody2D otherBody;
     private Transform tm;
-    public float speed;
+    private float speed;
     bool wait;
     public AudioClip paddleHit;
     public AudioClip brickHit;
@@ -17,11 +17,16 @@ public class ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 5f;
         tm = GetComponent<Transform>();
+        float xOffset = Random.Range(-1f,1f);
+        tm.position += new Vector3(xOffset, 0f, 0f);
+        Vector2 initVeloc;
+        initVeloc = new Vector2((xOffset*-speed)/1.84f, -speed);
         source = GetComponent<AudioSource>();
-        speed = speed * ( (globalVars.difficulty / 4) + .5f);
+        speed = speed * ((globalVars.difficulty / 3) + .5f);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector3(0, -speed, 0);
+        rb.velocity = initVeloc;
     }
 
     // Update is called once per frame
@@ -40,7 +45,20 @@ public class ball : MonoBehaviour
         //y velocity reversed when hitting player
         if (other.gameObject.CompareTag("Player"))
         {
-            rb.velocity = rb.velocity * new Vector3(1f, -1f, 1f);
+            float brickWidth = other.gameObject.GetComponent<SpriteRenderer>().size.x / 2;
+            float brickX = other.gameObject.transform.position.x;
+            float ballX = tm.position.x;
+            Vector2 reflect;
+            if (ballX < brickX - brickWidth * .9 || ballX > brickX + brickWidth * .9)
+            {
+                reflect = new Vector2(-1f, -1f);
+            }
+            else
+            {
+                reflect = new Vector2(1f, -1f);
+            }
+
+            rb.velocity = rb.velocity * reflect;
             otherBody = other.gameObject.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity + otherBody.velocity;
             source.PlayOneShot(paddleHit);

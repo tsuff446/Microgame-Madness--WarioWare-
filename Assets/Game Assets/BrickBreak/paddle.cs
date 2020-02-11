@@ -7,14 +7,15 @@ public class paddle : MonoBehaviour
     private Rigidbody2D rb;
     private Transform tm;
     float hori;
-    public float speed;
+    private float speed;
     Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
+        speed = 5f;
         rb = GetComponent<Rigidbody2D>();
         tm = GetComponent<Transform>();
-        speed = speed * ((globalVars.difficulty / 8) + .5f);
+        speed = speed * ((globalVars.difficulty / 4) + .5f);
 
     }
 

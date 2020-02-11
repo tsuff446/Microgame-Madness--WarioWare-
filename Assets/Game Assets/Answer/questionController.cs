@@ -144,6 +144,11 @@ public class questionController : MonoBehaviour
                     bombTimer.timeLeft = 0f;
                 }
             }
-        }   
+        }
+        if(!played && globalVars.win == true && bombTimer.exploded)
+        {
+            source.PlayOneShot(victory, 1f);
+            played = true;
+        }
     }
 }

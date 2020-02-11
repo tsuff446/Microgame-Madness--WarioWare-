@@ -19,6 +19,12 @@ public class playButton : MonoBehaviour
 
     void Start()
     {
+        globalVars.difficulty = 1f;
+        globalVars.win = false;
+        globalVars.firstGame = true;
+        globalVars.score = 0;
+        globalVars.lives = 3;
+
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFrameRate;
         clicked = false;

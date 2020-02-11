@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Death.unity
     guid: c1669ad8fb8384949be80a0fd9050b09
   - enabled: 1
+    path: Assets/Scenes/highScoreChange.unity
+    guid: dd4bab48a938c084db6c75e66417bf42
+  - enabled: 1
+    path: Assets/Scenes/highScores.unity
+    guid: 7dd19e55f410fb7488d3ad7ec61216b6
+  - enabled: 1
     path: Assets/Scenes/BrickBreak.unity
     guid: 272649c95753fab4d9ea47e6f2c6f0a0
   - enabled: 1

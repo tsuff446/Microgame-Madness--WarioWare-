@@ -13,8 +13,20 @@ public class playButton : MonoBehaviour
     private GameObject transition;
     private bool clicked;
 
+    public int targetFrameRate = 60;
+
+
+
     void Start()
     {
+        globalVars.difficulty = 1f;
+        globalVars.win = false;
+        globalVars.firstGame = true;
+        globalVars.score = 0;
+        globalVars.lives = 3;
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
         clicked = false;
         timeElapsed = 0f;
         tm = GetComponent<Transform>();
@@ -48,6 +60,13 @@ public class playButton : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetButton("Action") && !clicked)
+        {
+            source.PlayOneShot(clip, 1f);
+            transition.transform.position = new Vector3(0, 0, 10);
+            transition.transform.localScale = new Vector3(30, 30, 1);
+            clicked = true;
+        }
         if (clicked)
         {
             timeElapsed += Time.deltaTime;

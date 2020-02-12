@@ -16,7 +16,7 @@ public class ballController : MonoBehaviour
 
     void Update()
     {
-        if(tm.position.y < -7 && globalVars.win)
+        if((tm.position.y < -7 || tm.position.x > 11 || tm.position.x < -11) && globalVars.win)
         {
             balanceMain.gameLost();
             GetComponent<AudioSource>().Play(0);

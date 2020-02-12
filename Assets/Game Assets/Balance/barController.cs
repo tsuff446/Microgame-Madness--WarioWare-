@@ -16,13 +16,11 @@ public class barController : MonoBehaviour
         tm.Rotate(0,0, Random.Range(-rotationRange, rotationRange));
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
-            Debug.Log("Pressed");
-            rb.AddTorque(-1*Mathf.Sign(Input.GetAxis("Horizontal"))*10*rb.mass, ForceMode2D.Force);
+            rb.AddTorque(-1*Mathf.Sign(Input.GetAxis("Horizontal"))*20*rb.mass, ForceMode2D.Force);
             rb.angularDrag = .5f;
         }
         else

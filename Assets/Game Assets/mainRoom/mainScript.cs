@@ -45,8 +45,7 @@ public class mainScript : MonoBehaviour
             box.text = "You Lost...";
             
         }
-            //selects random scene to go to
-            index = Random.Range(5, 5+globalVars.gameDesc.Length);
+            index = Random.Range(5, (int)(5+globalVars.gameDesc.Length-1));
             gameIndex = index - 5;
             speedup = globalVars.score / speedUpMult + 1f;
             Debug.Log("Speedup:" + speedup.ToString());

@@ -16,9 +16,10 @@ public class globalVars
         "Defend!",
         "Wait for Green Light!",
         "Balance!",
-        "Pump the Balloon",
+        "Pump the Balloon",   
         "Follow the Arrow!",
-        "Press if True!"
+        "Press if True!",
+        "Jump"
     };
     public static int numPlayers = 4;
 }

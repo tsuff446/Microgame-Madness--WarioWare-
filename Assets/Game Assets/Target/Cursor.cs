@@ -10,7 +10,7 @@ public class Cursor : MonoBehaviour
     float vert;
     public float speed;
     Vector3 pos;
-    public float generosity;
+    private float generosity;
     public float sizex;
     public float sizey;
     public float startx;
@@ -25,6 +25,7 @@ public class Cursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        generosity = 1.51f * Mathf.Pow((1 / globalVars.difficulty),.3f);
         offset = GetComponent<BoxCollider2D>();
         source = GetComponent<AudioSource>();
         shot = false;
@@ -43,7 +44,7 @@ public class Cursor : MonoBehaviour
             hori = Input.GetAxis("Horizontal");
             vert = Input.GetAxis("Vertical");
             rb.velocity = new Vector2(hori * speed, vert * speed);
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Action"))
             {
                 shot = true;
                 rb.velocity = new Vector2(0, 0);

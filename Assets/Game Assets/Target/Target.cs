@@ -19,14 +19,15 @@ public class Target : MonoBehaviour
         transform.position = new Vector2(startx + Random.Range(-sizex,sizex), starty + Random.Range(-sizey,sizey));
         rb = GetComponent<Rigidbody2D>();
         tm = GetComponent<Transform>();
-        rb.velocity = new Vector2(globalVars.difficulty * .25f * speed * (Random.Range(1, 3) * 2 - 3), globalVars.difficulty * .25f * speed * (Random.Range(1, 3) * 2 - 3));
+        rb.velocity = new Vector2(Mathf.Pow(globalVars.difficulty,.5f) * .25f * speed * (Random.Range(1, 3) * 2 - 3), Mathf.Pow(globalVars.difficulty, .5f) * .25f * speed * (Random.Range(1, 3) * 2 - 3));
+        transform.localScale = new Vector2(.525f * Mathf.Pow((1 / globalVars.difficulty), .3f), .5f * Mathf.Pow((1 / globalVars.difficulty), .3f));
     }
 
     // Update is called once per frame
     void Update()
     {
         pos = transform.position;
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Action"))
         {
             rb.velocity = new Vector2(0, 0);
         }

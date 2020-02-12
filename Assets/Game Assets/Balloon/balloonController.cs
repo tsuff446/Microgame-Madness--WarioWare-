@@ -12,7 +12,7 @@ public class balloonController : MonoBehaviour
     private float topHeight;
     private float pumpSpeed;
     private int maxPump;
-    private int minPump = 12;
+    private int minPump = 10;
     private bool popped;
 
     private AudioSource balloonAudio;
@@ -22,7 +22,7 @@ public class balloonController : MonoBehaviour
     {
         pumpSpeed = 5f;
         popped = false;
-        maxPump = minPump + (int)globalVars.difficulty * 2;
+        maxPump = minPump + (int)(globalVars.difficulty * 1.5f);
         tm = GetComponent<Transform>();
         pumpTop = GameObject.Find("pump").transform.GetChild(0).gameObject;
         topHeight = pumpTop.GetComponent<SpriteRenderer>().bounds.size.y;

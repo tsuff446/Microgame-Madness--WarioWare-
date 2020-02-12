@@ -10,17 +10,16 @@ public class globalVars
     public static int score = 0;
     public static int lives = 3;
     public static string[] gameDesc = {
-        "Null",
-        "Null",
         "Hit Green!",
-        "Break the Wall!",
+        "Hit the Crack!",
         "Heat it up!",
         "Defend!",
-        "Wait for Green!",
+        "Wait for Green Light!",
         "Balance!",
         "Pump the Balloon",
-        "Watch Out!",
+        "Follow the Arrow!",
+        "Press if True!",
         "Hit the Target"
     };
-    public static int numPlayers = 2;
+    public static int numPlayers = 4;
 }

@@ -34,12 +34,10 @@ public class pongBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(tm.position.x);
         if ((tm.position.x < -12) && globalVars.win == true)
         {
             GameObject.Find("playFailSound").GetComponent<AudioSource>().Play(0);
             PongGameMain.gameLost();
-            Debug.Log("lose");
             this.gameObject.SetActive(false);
         }
         else if(tm.position.x > 12 && globalVars.win == true){

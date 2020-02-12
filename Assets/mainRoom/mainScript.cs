@@ -40,6 +40,7 @@ public class mainScript : MonoBehaviour
         index = Random.Range(2, SceneManager.sceneCountInBuildSettings);
         source.Play();
         Debug.Log("Difficulty: " + globalVars.difficulty);
+        index = 9;
     }
 
     private void FixedUpdate()

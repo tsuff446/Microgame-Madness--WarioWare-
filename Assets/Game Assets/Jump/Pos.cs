@@ -9,7 +9,8 @@ public class Pos : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.position = new Vector3(Random.Range(-4.0f,4.0f), rb.position.y,0);
+       
+        rb.position = new Vector3(Random.Range(-3.0f,3.0f), rb.position.y,0);
 
        
     }
@@ -17,6 +18,6 @@ public class Pos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+       rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

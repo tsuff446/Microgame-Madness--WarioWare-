@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class jump3 : MonoBehaviour
 {
-    public Vector3 jump;
-    public float jumpForce = 2.0f;
-
-    public bool isGrounded;
     Rigidbody rb;
-    void Start()
+    bool isgrounded = true;
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
-
-    void OnCollisionStay()
-    {
-        isGrounded = true;
-    }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
         {
 
-            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
-            isGrounded = false;
+            rb.velocity = new Vector2(rb.velocity.x, 8);
+        
         }
-        rb.velocity = new Vector2(5*Input.GetAxis("Horizontal"),rb.velocity.y);
+        rb.velocity = new Vector2(5 * Input.GetAxis("Horizontal"), rb.velocity.y);
+    }
+
+    //make sure u replace "floor" with your gameobject name.on which player is standing
+    void OnCollisionEnter(Collision theCollision)
+    {
+        if (theCollision.gameObject.name == "wall"|| theCollision.gameObject.name == "Plat1"||theCollision.gameObject.name == "Plat2" || theCollision.gameObject.name == "Plat3")
+        {
+            isgrounded = true;
+        }
+    }
+
+    //consider when character is jumping .. it will exit collision.
+    void OnCollisionExit(Collision theCollision)
+    {
+        if (theCollision.gameObject.name == "wall" || theCollision.gameObject.name == "Plat1" || theCollision.gameObject.name == "Plat2" || theCollision.gameObject.name == "Plat3")
+        {
+            isgrounded = false;
+        }
     }
 }

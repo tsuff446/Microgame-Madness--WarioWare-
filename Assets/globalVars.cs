@@ -16,8 +16,7 @@ public class globalVars
         "Defend!",
         "Wait for Green Light!",
         "Balance!",
-        "Pump the Balloon",    
-        "Watch Out!",
+        "Pump the Balloon",   
         "Follow the Arrow!",
         "Press if True!",
         "Jump"

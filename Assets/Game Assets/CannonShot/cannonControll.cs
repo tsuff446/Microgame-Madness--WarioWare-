@@ -6,7 +6,7 @@ public class cannonControll : MonoBehaviour
 {
     private Transform tm;
     private float verti = 0f;
-    private float turnRate = .2f;
+    private float turnRate = .25f;
     private float ballVelocity = 15f;
     public GameObject targetObj;
     public GameObject cannonBall;
@@ -54,7 +54,7 @@ public class cannonControll : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         zRad = tm.rotation.eulerAngles.z * (Mathf.PI / 180f);
         tfin = ((2 / g) * ballVelocity * Mathf.Sin(zRad));
@@ -92,7 +92,7 @@ public class cannonControll : MonoBehaviour
 
 
 
-        if (!fired && Input.GetKey("space"))
+        if (!fired && Input.GetButtonDown("Action"))
         {
             for (int i = 0; i < retNum; i++)
             {
@@ -107,7 +107,7 @@ public class cannonControll : MonoBehaviour
 
         if (fired)
         {
-            if (cannonBall.transform.position.x > 9.9f && cannonBall.transform.position.x < 10.1f)
+            if (cannonBall.transform.position.x > 10.2f && cannonBall.transform.position.x < 11.4f)
             {
                 if ((cannonBall.transform.position.y > cracks.transform.position.y + .8f || cannonBall.transform.position.y < cracks.transform.position.y - .8f))
                 {

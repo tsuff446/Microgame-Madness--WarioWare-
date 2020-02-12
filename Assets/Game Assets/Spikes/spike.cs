@@ -18,6 +18,8 @@ public class spike : MonoBehaviour
     public float center;
     public float spacing;
     public float totalspikes;
+
+    
     void Start()
     {
         spiked = false;
@@ -32,8 +34,12 @@ public class spike : MonoBehaviour
         if ((bombTimer.timeLeft < 1f)&&(!(pos.x==Arrow.pos.x)))
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(pos.x, pos.y + heightchange, 0),.8f);
+            // Prevents sound from being played multiple times
+            if (!spiked)
+            {
+                source.PlayOneShot(spikenoise, 1f);
+            }
             spiked = true;
-            source.PlayOneShot(spikenoise, .1f);
         }
     }
 }

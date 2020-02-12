@@ -26,12 +26,18 @@ public class TwoPlayerController : MonoBehaviour
     {
         if(Input.GetAxis("Horizontal_Player" + playerNum) != 0)
         {
-            rb.AddForce( new Vector2(Input.GetAxis("Horizontal_Player" + playerNum), 0));
+            rb.velocity += new Vector2(Input.GetAxis("Horizontal_Player" + playerNum), 0);
         }
         if (Input.GetAxis("Vertical_Player" + playerNum) != 0)
         {
-            rb.AddForce(new Vector2(0, Input.GetAxis("Vertical_Player" + playerNum)));
+            rb.velocity += new Vector2(0,Input.GetAxis("Vertical_Player" + playerNum));
         }
+        if (Input.GetButton("Action"))
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
+        
+            Debug.Log(Input.GetJoystickNames()[0]);
         
     }
 }

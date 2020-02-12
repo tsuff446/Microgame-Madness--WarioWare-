@@ -19,7 +19,9 @@ public class globalVars
         "Pump the Balloon",   
         "Follow the Arrow!",
         "Press if True!",
-        "Jump"
+        "Jump",
+        "Hit the Target"
+
     };
     public static int numPlayers = 4;
 }

@@ -23,5 +23,6 @@ public class globalVars
         "Hit the Target"
 
     };
+    public static int[] timesPlayed = new int[gameDesc.Length];
     public static int numPlayers = 4;
 }

@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 335471324}
   - component: {fileID: 335471323}
   - component: {fileID: 335471322}
+  - component: {fileID: 335471327}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -429,6 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e8d03f97caa664ea2ebd8fc7881b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winSound: {fileID: 8300000, guid: db092cf5809483c40a6501123cab7545, type: 3}
+  jumpSound: {fileID: 8300000, guid: 71c65c25a207cf54b9ceb07817d53bf6, type: 3}
 --- !u!212 &335471325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -492,6 +495,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &335471327
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335471321}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &609797041
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +850,7 @@ GameObject:
   - component: {fileID: 1169943152}
   - component: {fileID: 1169943151}
   - component: {fileID: 1169943150}
+  - component: {fileID: 1169943153}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -793,7 +893,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.183158
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -823,6 +923,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1169943153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169943149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d1831df5843ce42af442e653f5f837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneWidth: 22
 --- !u!1001 &1333205541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,12 +976,12 @@ PrefabInstance:
     - target: {fileID: 7703404038934773947, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.26
+      value: -6.37
       objectReference: {fileID: 0}
     - target: {fileID: 7703404038934773947, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.31
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 7703404038934773947, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}

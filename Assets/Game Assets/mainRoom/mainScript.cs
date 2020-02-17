@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Linq;
 
 public class mainScript : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class mainScript : MonoBehaviour
     private float speedup;
     private int gameIndex;
     private float speedUpMult = 4;
+    private int weightedGameIndex;
     void Start()
     {
 
@@ -46,14 +48,37 @@ public class mainScript : MonoBehaviour
             
         }
         
-            //selects random scene to go to
-            index = Random.Range(5, (int)(5 + globalVars.gameDesc.Length - 1));
-            gameIndex = index - 5;
-            speedup = globalVars.score / speedUpMult + 1f;
-            Debug.Log("Speedup:" + speedup.ToString());
-            source.pitch = speedup;
-            source.Play();
-            Debug.Log("Difficulty: " + globalVars.difficulty);
+        //selects random scene to go to
+        weightedGameIndex = Random.Range(0, globalVars.timesPlayed.Sum());
+        gameIndex = weightToIndex(weightedGameIndex);
+        index = gameIndex + 5;
+        adjustWeights(gameIndex);
+        Debug.Log(globalVars.timesPlayed);
+        speedup = globalVars.score / speedUpMult + 1f;
+        Debug.Log("Speedup:" + speedup.ToString());
+        source.pitch = speedup;
+        source.Play();
+        Debug.Log("Difficulty: " + globalVars.difficulty);
+    }
+    private void adjustWeights(int gameIndex)
+    {
+        for(int i = 0; i < globalVars.timesPlayed.Length; i++)
+        {
+            if(i != gameIndex)
+            {
+                globalVars.timesPlayed[i] += 1;
+            }
+        }
+    }
+    private int weightToIndex(int weightedGameIndex)
+    {
+        for(int i = 0; i < globalVars.timesPlayed.Length; i++)
+        {
+            weightedGameIndex -= globalVars.timesPlayed[i];
+            if (weightedGameIndex <= 0)
+                return i;
+        }
+        return 0;
     }
 
     private void FixedUpdate()

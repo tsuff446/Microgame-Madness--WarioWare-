@@ -6,15 +6,23 @@ public class jump3 : MonoBehaviour
 {
     Rigidbody rb;
     bool isgrounded = true;
+    bool soundPlayed = false;
+    public AudioClip winSound;
+    public AudioClip jumpSound;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
+        if (globalVars.win && !soundPlayed)
         {
-
+            this.GetComponent<AudioSource>().PlayOneShot(winSound, 1f);
+            soundPlayed = true;
+        }
+        if (Input.GetButtonDown("Action") && isgrounded)
+        {
+            this.GetComponent<AudioSource>().PlayOneShot(jumpSound, 1f);
             rb.velocity = new Vector2(rb.velocity.x, 8);
         
         }

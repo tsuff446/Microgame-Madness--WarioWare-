@@ -70,15 +70,18 @@ public class mainScript : MonoBehaviour
             }
         }
     }
+
     private int weightToIndex(int weightedGameIndex)
     {
-        for(int i = 0; i < globalVars.timesPlayed.Length; i++)
+        if(weightedGameIndex == 0)
+            return Random.Range(0, globalVars.gameDesc.Length);
+        for (int i = 0; i < globalVars.timesPlayed.Length; i++)
         {
             weightedGameIndex -= globalVars.timesPlayed[i];
             if (weightedGameIndex <= 0)
                 return i;
         }
-        return 0;
+        return Random.Range(0, globalVars.gameDesc.Length);
     }
 
     private void FixedUpdate()

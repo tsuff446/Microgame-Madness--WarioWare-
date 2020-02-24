@@ -26,8 +26,8 @@ public class cursorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controllerConnected = Convert.ToBoolean(Input.GetJoystickNames().Length);
-        this.transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        controllerConnected = true;
+        this.transform.position += new Vector3(Input.GetAxis("Horizontal") / 2, Input.GetAxis("Vertical") / 2, 0f);
         if (!controllerConnected)
         {
             this.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);

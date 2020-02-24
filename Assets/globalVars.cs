@@ -20,7 +20,8 @@ public class globalVars
         "Follow the Arrow!",
         "Press if True!",
         "Jump",
-        "Hit the Target"
+        "Hit the Target",
+        "Copy"
 
     };
     public static int[] timesPlayed = new int[gameDesc.Length];

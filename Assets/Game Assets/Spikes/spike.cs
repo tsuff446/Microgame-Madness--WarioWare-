@@ -18,10 +18,12 @@ public class spike : MonoBehaviour
     public float center;
     public float spacing;
     public float totalspikes;
+    public SpriteRenderer rend;
 
-    
     void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
+        rend.enabled = false;
         spiked = false;
         pos = new Vector3((idnum - (totalspikes/2) - 0.5f) * spacing + center, heightstart, 0);
         transform.position = pos;
@@ -33,6 +35,7 @@ public class spike : MonoBehaviour
     {
         if ((bombTimer.timeLeft < 1f)&&(!(pos.x==Arrow.pos.x)))
         {
+            rend.enabled = true;
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(pos.x, pos.y + heightchange, 0),.8f);
             // Prevents sound from being played multiple times
             if (!spiked)

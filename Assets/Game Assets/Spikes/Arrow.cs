@@ -17,29 +17,63 @@ public class Arrow : MonoBehaviour
     private AudioSource source;
     public AudioClip arrownoise;
     // Start is called before the first frame update
+    bool move;
+    float ch;
+    private Rigidbody2D rb;
+    public SpriteRenderer rend;
     void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
+        rend.enabled = false;
+        done = false;
+        rb = GetComponent<Rigidbody2D>();
         source = GetComponent<AudioSource>();
-        if (globalVars.difficulty > 4)
+        positionvalue = Random.Range(1, 8) - 4.5f;
+        if (globalVars.difficulty > 6)
         {
-            time = 2;
+            rend.enabled = true;
+            time = 2f;
+            move = true;
+            ch = Random.Range(-globalVars.difficulty, globalVars.difficulty) * 1.4f;
+            pos = new Vector3((float)((spacing * (double)positionvalue) + center) + ch, targetheight, 0);
+            transform.position = pos;
         }
         else
         {
-            time = 7 - globalVars.difficulty;
+            time = 5f - globalVars.difficulty / 2;
+            move = false;
         }
-        done = false;
-        
     }
     private void Update()
     {
         if ((bombTimer.timeLeft < time)&&(!done))
         {
-            positionvalue = Random.Range(1, 8) - 4.5f;
-            pos = new Vector3((float)((spacing * (double)positionvalue) + center), targetheight, 0);
-            transform.position = pos;
-            done = true;
-            source.PlayOneShot(arrownoise, 1f);
+            rend.enabled = true;
+            if (move)
+            {
+                rb.velocity = new Vector2(-ch*5,0);
+                pos = transform.position;
+                if( ((pos.x > (float)((spacing * (double)positionvalue) + center)) &&
+                    (ch < 0)) ||
+                    ((ch > 0) &&
+                    (pos.x < (float)((spacing * (double)positionvalue) + center))) )
+                {
+                    source.PlayOneShot(arrownoise, 1f);
+                    pos = new Vector3((float)((spacing * (double)positionvalue) + center), targetheight, 0);
+                    rb.velocity = new Vector2(0, 0);
+                    transform.position = pos;
+                    done = true;
+                }
+            }
+            else
+            {
+                source.PlayOneShot(arrownoise, 1f);
+                pos = new Vector3((float)((spacing * (double)positionvalue) + center), targetheight, 0);
+                transform.position = pos;
+                done = true;
+            }
+            
+            
         }
     }
     

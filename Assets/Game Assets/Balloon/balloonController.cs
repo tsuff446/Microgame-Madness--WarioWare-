@@ -20,7 +20,7 @@ public class balloonController : MonoBehaviour
     public AudioClip pop;
     void Start()
     {
-        pumpSpeed = 5f;
+        pumpSpeed = 8f;
         popped = false;
         maxPump = minPump + (int)(globalVars.difficulty * 1.5f);
         tm = GetComponent<Transform>();

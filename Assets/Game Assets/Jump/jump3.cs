@@ -20,7 +20,7 @@ public class jump3 : MonoBehaviour
             this.GetComponent<AudioSource>().PlayOneShot(winSound, 1f);
             soundPlayed = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
+        if (Input.GetButtonDown("Action") && isgrounded)
         {
             this.GetComponent<AudioSource>().PlayOneShot(jumpSound, 1f);
             rb.velocity = new Vector2(rb.velocity.x, 8);

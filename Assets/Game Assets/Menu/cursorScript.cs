@@ -26,7 +26,7 @@ public class cursorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controllerConnected = true;
+        controllerConnected = Convert.ToBoolean(Input.GetJoystickNames().Length);
         this.transform.position += new Vector3(Input.GetAxis("Horizontal") / 2, Input.GetAxis("Vertical") / 2, 0f);
         if (!controllerConnected)
         {

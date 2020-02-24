@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 7703404038934773944, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}
       propertyPath: minTime
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7703404038934773947, guid: 3671180ce1ecb8642825baeddd47b35d,
         type: 3}

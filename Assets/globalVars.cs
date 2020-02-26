@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class globalVars
 {
-    public static float difficulty = 1f;
+    public static float difficulty = 10f;
     public static bool win = false;
     public static bool firstGame = true;
     public static int score = 0;

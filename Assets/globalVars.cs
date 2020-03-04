@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class globalVars
 {
-    public static float difficulty = 10f;
+    public static float difficulty = 1f;
     public static bool win = false;
     public static bool firstGame = true;
     public static int score = 0;
@@ -21,7 +21,8 @@ public class globalVars
         "Press if True!",
         "Jump",
         "Hit the Target",
-        "Copy"
+        "Copy",
+        "Find the Match"
 
     };
     public static int[] timesPlayed = new int[gameDesc.Length];

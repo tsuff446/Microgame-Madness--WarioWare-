@@ -16,9 +16,8 @@ public class Playermove : MonoBehaviour
     private AudioSource source;
     public AudioClip good;
     public AudioClip bad;
-    bool found1;
-    bool found2;
     bool done;
+    private SpriteRenderer rend;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +26,10 @@ public class Playermove : MonoBehaviour
         readydown = true;
         readyleft = true;
         readyright = true;
-        gen = 0.4f;
+        gen = 0.1f;
         beginning = true;
-        found1 = false;
-        found2 = false;
         done = false;
+        rend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -87,36 +85,48 @@ public class Playermove : MonoBehaviour
             {
                 if (new Vector2(transform.position.x, transform.position.y) == Shuffle.dupeposition1)
                 {
-                    if (!found1)
-                    {
-                        source.PlayOneShot(good, 1f);
-                        found1 = true;
-                    }
-                    if (found1 && found2)
-                    {
-                        Memorymain.gameWon();
-                        done = true;
-                    }
+                    source.PlayOneShot(good, 1f);
+                    Memorymain.gameWon();
+                    done = true;
+                    GameObject go = new GameObject("New");
+                    SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
+                    renderer.sprite = rend.sprite;
+                    renderer.sortingOrder = -1;
+                    go.transform.localScale = new Vector2(1.5f, 1.5f);
+                    Instantiate(go, Shuffle.dupeposition1, new Quaternion(0, 0, 0, 0));
+                    Instantiate(go, Shuffle.dupeposition2, new Quaternion(0, 0, 0, 0));
+                    Destroy(go);
 
                 }
                 else if (new Vector2(transform.position.x, transform.position.y) == Shuffle.dupeposition2)
                 {
-                    if (!found2)
-                    {
-                        source.PlayOneShot(good, 1f);
-                        found2 = true;
-                    }
-                    if (found1 && found2)
-                    {
-                        Memorymain.gameWon();
-                        done = true;
-                    }
+
+                    source.PlayOneShot(good, 1f);
+                    Memorymain.gameWon();
+                    done = true;
+                    GameObject go = new GameObject("New");
+                    SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
+                    renderer.sprite = rend.sprite;
+                    renderer.sortingOrder = -1;
+                    go.transform.localScale = new Vector2(1.5f, 1.5f);
+                    Instantiate(go, Shuffle.dupeposition1, new Quaternion(0, 0, 0, 0));
+                    Instantiate(go, Shuffle.dupeposition2, new Quaternion(0, 0, 0, 0));
+                    Destroy(go);
+
                 }
                 else
                 {
                     source.PlayOneShot(bad, 1f);
                     Memorymain.gameLost();
                     done = true;
+                    GameObject go = new GameObject("New");
+                    SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
+                    renderer.sprite = rend.sprite;
+                    renderer.sortingOrder = -1;
+                    go.transform.localScale = new Vector2(1.5f, 1.5f);
+                    Instantiate(go, Shuffle.dupeposition1, new Quaternion(0, 0, 0, 0));
+                    Instantiate(go, Shuffle.dupeposition2, new Quaternion(0, 0, 0, 0));
+                    Destroy(go);
                 }
             }
         }

@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Match.unity
     guid: 4407d895eddf05143add0d3848f1dc57
+  - enabled: 1
+    path: Assets/Scenes/Spaceship.unity
+    guid: 43bd35d1ec5fd7c43865a30af191c9ca
   m_configObjects: {}

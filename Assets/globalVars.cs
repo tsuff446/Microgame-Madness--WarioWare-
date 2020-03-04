@@ -22,7 +22,8 @@ public class globalVars
         "Jump",
         "Hit the Target",
         "Copy",
-        "Find the Match"
+        "Find the Match",
+        "Don't Get Hit"
 
     };
     public static int[] timesPlayed = new int[gameDesc.Length];

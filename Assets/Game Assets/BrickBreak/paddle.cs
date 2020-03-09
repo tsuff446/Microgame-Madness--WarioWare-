@@ -15,7 +15,7 @@ public class paddle : MonoBehaviour
         speed = 5f;
         rb = GetComponent<Rigidbody2D>();
         tm = GetComponent<Transform>();
-        speed = speed * ((globalVars.difficulty / 4) + .5f);
+        speed = speed * ((globalVars.difficulty / 3) + .5f);
 
     }
 

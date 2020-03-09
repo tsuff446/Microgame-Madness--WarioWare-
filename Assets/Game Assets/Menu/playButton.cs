@@ -12,13 +12,19 @@ public class playButton : MonoBehaviour
     private float timeElapsed;
     private GameObject transition;
     private bool clicked;
+    public GameObject cursor;
+    private bool entered;
 
-    public int targetFrameRate = 60;
+    private int targetFrameRate = 60;
 
 
 
     void Start()
     {
+        //was the cursor there last frame
+        entered = false;
+        Cursor.visible = false;
+
         globalVars.difficulty = 1f;
         globalVars.win = false;
         globalVars.firstGame = true;
@@ -35,38 +41,41 @@ public class playButton : MonoBehaviour
         sp.color = new Color(0, 214, 0);
         transition = GameObject.Find("black");
     }
-    void OnMouseEnter()
+
+    bool checkCursorCollision()
     {
-        if (!clicked)
-        {
-            source.PlayOneShot(clip, 1f);
-            sp.color = new Color(255, 0, 0);
-            tm.localScale = tm.localScale * 1.2f;
-        }
-    }
-    void OnMouseExit()
-    {
-        if (!clicked)
-        {
-            sp.color = new Color(0, 214, 0);
-            tm.localScale = tm.localScale / 1.2f;
-        }
-    }
-    void OnMouseDown()
-    {
-        transition.transform.position = new Vector3(0, 0, 10);
-        transition.transform.localScale = new Vector3(30, 30, 1);
-        clicked = true;
+        if (cursor.transform.position.x < this.transform.position.x + sp.bounds.size.x / 2 && cursor.transform.position.x > this.transform.position.x - sp.bounds.size.x / 2)     
+            if (cursor.transform.position.y < this.transform.position.y + sp.bounds.size.y / 2 && cursor.transform.position.y > this.transform.position.y - sp.bounds.size.y / 2)
+                return true;
+        return false;
     }
     void Update()
     {
-        if (Input.GetButton("Action") && !clicked)
+        if (checkCursorCollision() && (Input.GetAxis("Action") > 0 || Input.GetMouseButtonDown(0)) && !clicked )
         {
             source.PlayOneShot(clip, 1f);
             transition.transform.position = new Vector3(0, 0, 10);
             transition.transform.localScale = new Vector3(30, 30, 1);
             clicked = true;
+        }else if (checkCursorCollision() && !clicked && !entered){
+            if (!clicked)
+            {
+                source.PlayOneShot(clip, 1f);
+                sp.color = new Color(255, 0, 0);
+                tm.localScale = tm.localScale * 1.2f;
+                entered = true;
+            }
         }
+        else if(!checkCursorCollision() && entered)
+        {
+            if (!clicked)
+            {
+                sp.color = new Color(0, 214, 0);
+                tm.localScale = tm.localScale / 1.2f;
+                entered = false;
+            }
+        }
+
         if (clicked)
         {
             timeElapsed += Time.deltaTime;

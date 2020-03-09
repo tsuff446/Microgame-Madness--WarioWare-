@@ -64,7 +64,7 @@ public class cannonControll : MonoBehaviour
         {
             tm.Rotate(0f, 0f, turnRate, Space.World) ;
         }
-        else if (verti < 0 && zRad-turnRate > 0)
+        else if (verti < 0 && zRad-turnRate > -.1f)
         {
             tm.Rotate(0f,0f, -1 * turnRate, Space.World);
         }

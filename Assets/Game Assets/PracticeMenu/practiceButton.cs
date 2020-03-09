@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class playButton : MonoBehaviour
+public class practiceButton : MonoBehaviour
 {
     private Transform tm;
     private SpriteRenderer sp;
     private AudioSource source;
     public AudioClip clip;
-    private float timeElapsed;
     private GameObject transition;
     private bool clicked;
     public GameObject cursor;
     private bool entered;
-
-    private int targetFrameRate = 60;
 
 
 
@@ -31,15 +28,12 @@ public class playButton : MonoBehaviour
         globalVars.score = 0;
         globalVars.lives = 3;
 
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
         clicked = false;
-        timeElapsed = 0f;
         tm = GetComponent<Transform>();
         sp = GetComponent<SpriteRenderer>();
         source = GetComponent<AudioSource>();
         sp.color = new Color(0, 214, 0);
-        transition = GameObject.Find("black");
+        globalVars.gameMode = 1;
     }
 
     bool checkCursorCollision()
@@ -54,8 +48,6 @@ public class playButton : MonoBehaviour
         if (checkCursorCollision() && (Input.GetAxis("Action") > 0 || Input.GetMouseButtonDown(0)) && !clicked )
         {
             source.PlayOneShot(clip, 1f);
-            transition.transform.position = new Vector3(0, 0, 10);
-            transition.transform.localScale = new Vector3(30, 30, 1);
             clicked = true;
         }else if (checkCursorCollision() && !clicked && !entered){
             if (!clicked)
@@ -78,18 +70,9 @@ public class playButton : MonoBehaviour
 
         if (clicked)
         {
-            timeElapsed += Time.deltaTime;
-
-            if (timeElapsed <4)
-            {
-                transition.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, timeElapsed/4);
-                GameObject.Find("playIntroSong").GetComponent<AudioSource>().volume = 10 - timeElapsed * 2.5f;
-            }
-            else
-            {
-                SceneManager.LoadScene(1);
-            }
-
+            Debug.Log("Going to Scene " + practice_selection.game_index.ToString() + " with difficulty " + practice_selection.difficulty_index.ToString());
+            SceneManager.LoadScene(7 + practice_selection.game_index);
+            clicked = !clicked;
         }
         
     }

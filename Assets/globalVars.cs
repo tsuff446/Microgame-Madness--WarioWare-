@@ -26,6 +26,14 @@ public class globalVars
         "Don't Get Hit"
 
     };
+    //0 is singleplayer, 1 is practice, 2 is multiplayer
+    public static int gameMode = 2;
+
+    public static bool[] multWin = { false, false, false, false };
+    public static int[] multLives = { 3, 3, 3, 3 };
+    public static int numPlayers = 3;
+
     public static int[] timesPlayed = new int[gameDesc.Length];
-    public static int numPlayers = 4;
+
+    public static float songPosition = 0f;
 }

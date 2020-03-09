@@ -12,13 +12,14 @@ public class TwoPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Transform>().GetChild(0).gameObject;
-        rb = player.GetComponent<Rigidbody2D>();
-        tm = player.GetComponent<Transform>();
-        if(playerNum > globalVars.numPlayers)
+        if (playerNum > globalVars.numPlayers || globalVars.multLives[playerNum-1] <= 0)
         {
             this.gameObject.SetActive(false);
         }
+        player = GetComponent<Transform>().GetChild(0).gameObject;
+        rb = player.GetComponent<Rigidbody2D>();
+        tm = player.GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
@@ -32,12 +33,12 @@ public class TwoPlayerController : MonoBehaviour
         {
             rb.velocity += new Vector2(0,Input.GetAxis("Vertical_Player" + playerNum));
         }
-        if (Input.GetButton("Action"))
+        if (Input.GetButton("Action_Player" + playerNum))
         {
-            rb.velocity = new Vector2(0, 0);
+            globalVars.multWin[playerNum-1] = true;
+            Debug.Log("Player " + playerNum.ToString() + " Wins!");
         }
-        
-            Debug.Log(Input.GetJoystickNames()[0]);
+       
         
     }
 }

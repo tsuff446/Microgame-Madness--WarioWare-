@@ -51,7 +51,7 @@ public class mainScript : MonoBehaviour
         //selects random scene to go to
         weightedGameIndex = Random.Range(0, globalVars.timesPlayed.Sum());
         gameIndex = weightToIndex(weightedGameIndex);
-        index = gameIndex + 5;
+        index = gameIndex + 7;
         adjustWeights(gameIndex);
         Debug.Log(globalVars.timesPlayed);
         speedup = globalVars.score / speedUpMult + 1f;

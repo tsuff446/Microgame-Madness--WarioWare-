@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jump.unity
     guid: 1974b882fa150c6438ef40354b97690e
+  - enabled: 1
+    path: Assets/Scenes/Points.unity
+    guid: 8fb9c0341155557479191b2d3a0dd49c
   m_configObjects: {}

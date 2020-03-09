@@ -61,12 +61,12 @@ public class mainScript : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if(timer >= 8.4f / speedup)
         {
-            SceneManager.LoadScene(index);
+            SceneManager.LoadScene(15);
         }
         else if (timer >= 8f / speedup)
         {
             // large cause of errors: when you add a new game make SURE to add a game description string to the array in globalVars
-            box.text = globalVars.gameDesc[gameIndex];
+            box.text = globalVars.gameDesc[10];
         }
         else if (timer >= 5.25f / speedup)
         {

@@ -22,7 +22,6 @@ public class globalVars
         "Jump",
         "Hit the Target",
         "Copy"
-
     };
     //0 is singleplayer, 1 is practice, 2 is multiplayer
     public static int gameMode = 2;

@@ -34,13 +34,13 @@ public class cursorScript : MonoBehaviour
             this.transform.position += new Vector3(0, 0, 5f);
         }
         
-        if (this.transform.position.x > width / 2)
+        if (this.transform.position.x > Screen.width / 2)
             this.transform.position = new Vector3(width / 2, transform.position.y, transform.position.z);
-        if (this.transform.position.x < -width / 2)
+        if (this.transform.position.x < -Screen.width / 2)
             this.transform.position = new Vector3(-width / 2, transform.position.y, transform.position.z);
-        if (this.transform.position.y > height / 2)
+        if (this.transform.position.y > Screen.height / 2)
             this.transform.position = new Vector3( transform.position.x, height / 2, transform.position.z);
-        if (this.transform.position.y < -height / 2)
+        if (this.transform.position.y < -Screen.height / 2)
             this.transform.position = new Vector3( transform.position.x, -height / 2, transform.position.z);
     }
 }

@@ -22,6 +22,7 @@ public class Shuffle : MonoBehaviour
     int offset;
     static public Vector2 dupeposition1;
     static public Vector2 dupeposition2;
+    private GameObject f;
     
     void Start()
     {
@@ -125,7 +126,8 @@ public class Shuffle : MonoBehaviour
                     dupeposition2 = new Vector2(-boardwidth / 2 + xspacing * i, boardheight / 2 - yspacing * j);
                 }
                 renderer.color = new Color(colorss[masterarray[height * i + j]].r,colorss[masterarray[height * i + j]].g,colorss[masterarray[height * i + j]].b);
-                Instantiate(go, new Vector2(-boardwidth / 2 + xspacing * i, boardheight / 2 - yspacing * j), new Quaternion(0, 0, 0, 0));
+                f = Instantiate(go, new Vector2(-boardwidth / 2 + xspacing * i, boardheight / 2 - yspacing * j), new Quaternion(0, 0, 0, 0));
+                f.transform.SetParent(this.transform);
             }
         }
         Destroy(go);

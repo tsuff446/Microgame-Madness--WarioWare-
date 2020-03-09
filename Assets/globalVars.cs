@@ -26,7 +26,7 @@ public class globalVars
         "Don't Get Hit"
     };
     //0 is singleplayer, 1 is practice, 2 is multiplayer
-    public static int gameMode = 2;
+    public static int gameMode = 0;
 
     public static bool[] multWin = { false, false, false, false };
     public static int[] multLives = { 3, 3, 3, 3 };

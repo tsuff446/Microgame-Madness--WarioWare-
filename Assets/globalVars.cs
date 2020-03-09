@@ -21,7 +21,9 @@ public class globalVars
         "Press if True!",
         "Jump",
         "Hit the Target",
-        "Copy"
+        "Copy",
+        "Find the Match",
+        "Don't Get Hit"
 
     };
     //0 is singleplayer, 1 is practice, 2 is multiplayer

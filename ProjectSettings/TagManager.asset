@@ -9,6 +9,7 @@ TagManager:
   - Collectible
   - Horizontal wall
   - Vertical Wall
+  - Asteroid
   layers:
   - Default
   - TransparentFX

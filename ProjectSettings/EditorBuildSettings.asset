@@ -63,6 +63,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Simon.unity
     guid: 5de1d0f852139fa459ad883c59e4b0b2
   - enabled: 1
+    path: Assets/Scenes/Match.unity
+    guid: 4407d895eddf05143add0d3848f1dc57
+  - enabled: 1
+    path: Assets/Scenes/Spaceship.unity
+    guid: 43bd35d1ec5fd7c43865a30af191c9ca
+  - enabled: 1
     path: Assets/Scenes/multiplayerTest/TwoPlayer.unity
     guid: d64c9baf836170544aa22a0d924ebf86
   m_configObjects: {}

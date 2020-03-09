@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour
     float time;
     int count;
     float spacing;
-    float length;
+    public static int length;
     bool now;
     public static float totaltime;
     float gen;
@@ -20,7 +20,7 @@ public class Buttons : MonoBehaviour
     public AudioClip good;
     bool freeze;
     float startingtime;
-    float startingwait;
+    public static float startingwait;
     bool played;
     // Start is called before the first frame update
     void Start()
@@ -30,13 +30,13 @@ public class Buttons : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         time = 0;
         count = 0;
-        if (globalVars.difficulty > 8)
+        if (globalVars.difficulty > 9)
         {
-            length = 9;
+            length = 10;
         }
         else
         {
-            length = Mathf.FloorToInt(globalVars.difficulty * .6f + 3);
+            length = Mathf.RoundToInt(globalVars.difficulty * .8f + 3);
         }
         totaltime = 3;
         spacing = totaltime / length;

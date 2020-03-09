@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Arraycontrol : MonoBehaviour
 {
-    int length;
     static public int[] masterarray;
     int count;
     private AudioSource source;
@@ -18,24 +17,14 @@ public class Arraycontrol : MonoBehaviour
     bool readydown;
     bool readyleft;
     bool readyright;
-    public static float totaltime;
     float gen;
     float startingtime;
-    float startingwait;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (globalVars.difficulty > 8)
-        {
-            length = 9;
-        }
-        else
-        {
-            length = Mathf.FloorToInt(globalVars.difficulty * .6f + 3);
-        }
-        masterarray = new int[length];
-        for(int i = 0; i < length; ++i)
+        masterarray = new int[Buttons.length];
+        for(int i = 0; i < Buttons.length; ++i)
         {
             masterarray[i] = Random.Range(1, 5);
         }
@@ -48,26 +37,24 @@ public class Arraycontrol : MonoBehaviour
         readydown = true;
         readyleft = true;
         readyright = true;
-        totaltime = 3;
         gen = .4f;
         startingtime = 0;
-        startingwait = 0.4f;
     }
         
     // Update is called once per frame
     void Update()
     {
         startingtime += Time.deltaTime;
-        if (startingtime > startingwait)
+        if (startingtime > Buttons.startingwait)
         {
             time += Time.deltaTime;
-            if (time > totaltime)
+            if (time > Buttons.totaltime)
             {
                 go = true;
             }
             if ((!done) && go)
             {
-                if ((Input.GetAxis("Vertical") > gen) && readyup && (count < length) && !done)
+                if ((Input.GetAxis("Vertical") > gen) && readyup && (count < Buttons.length) && !done)
                 {
                     if (masterarray[count] == 1)
                     {
@@ -82,7 +69,7 @@ public class Arraycontrol : MonoBehaviour
                     }
                     ++count;
                 }
-                if ((Input.GetAxis("Horizontal") < -gen) && readyleft && (count < length) && !done)
+                if ((Input.GetAxis("Horizontal") < -gen) && readyleft && (count < Buttons.length) && !done)
                 {
                     if (masterarray[count] == 2)
                     {
@@ -97,7 +84,7 @@ public class Arraycontrol : MonoBehaviour
                     }
                     ++count;
                 }
-                if ((Input.GetAxis("Horizontal") > gen) && readyright && (count < length) && !done)
+                if ((Input.GetAxis("Horizontal") > gen) && readyright && (count < Buttons.length) && !done)
                 {
                     if (masterarray[count] == 3)
                     {
@@ -112,7 +99,7 @@ public class Arraycontrol : MonoBehaviour
                     }
                     ++count;
                 }
-                if ((Input.GetAxis("Vertical") < -gen) && readydown && (count < length) && !done)
+                if ((Input.GetAxis("Vertical") < -gen) && readydown && (count < Buttons.length) && !done)
                 {
                     if (masterarray[count] == 4)
                     {
@@ -143,7 +130,7 @@ public class Arraycontrol : MonoBehaviour
                 {
                     readyright = true;
                 }
-                if (count >= length && !done)
+                if (count >= Buttons.length && !done)
                 {
                     source.PlayOneShot(cheer, 1f);
                     SimonMain.gameWon();

@@ -6,7 +6,7 @@ There are 13 unique games to play in Microgame Madness! Some examples:
 
 Play in endless singleplayer or practice mode:
 ![Singleplayer](README_IMAGES/gameplay.png)
-![Practice](README_IMAGES/practice.png)
+![Practice](README_IMAGES/Practice.png)
 
 Work to beat your friends highscores!
 ![High Scores](README_IMAGES/high_scores.png)

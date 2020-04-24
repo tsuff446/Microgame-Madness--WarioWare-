@@ -1,6 +1,6 @@
 # Microgame Madness (WarioWare)
  
-## There are 13 unique games to play in Microgame Madness! Some examples:
+## There are 13 unique games (with more on the way) to play in Microgame Madness! Some examples:
 ![Game Examples](README_IMAGES/pjimage.jpg)
 
 ## Play in endless singleplayer or practice mode:

@@ -117,7 +117,14 @@ public class stopLightController : MonoBehaviour
             gameOverTime += Time.deltaTime;
             if(gameOverTime > 2.2f)
             {
-                SceneManager.LoadScene(1);
+                if (globalVars.gameMode == 0)
+                    SceneManager.LoadScene(1);
+                else if (globalVars.gameMode == 1)
+                    SceneManager.LoadScene(5);
+                else if (globalVars.gameMode == 2)
+                    SceneManager.LoadScene(6);
+                else
+                    SceneManager.LoadScene(1);
             }
         }
     }

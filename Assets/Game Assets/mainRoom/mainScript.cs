@@ -16,6 +16,10 @@ public class mainScript : MonoBehaviour
     private int gameIndex;
     private float speedUpMult = 4;
     private int weightedGameIndex;
+    private GameObject dispControls;
+    private GameObject directions;
+    private GameObject action;
+    private bool showControls = false;
     void Start()
     {
 
@@ -23,6 +27,12 @@ public class mainScript : MonoBehaviour
         source = GetComponent<AudioSource>();
         box = GetComponent<TextMeshPro>();
 
+        dispControls = this.transform.GetChild(0).gameObject;
+        directions = dispControls.transform.GetChild(0).gameObject;
+        action = dispControls.transform.GetChild(1).gameObject;
+        showControls = false;
+
+        dispControls.SetActive(false);
         // Handles first text box
         if (globalVars.firstGame)
         {
@@ -83,20 +93,67 @@ public class mainScript : MonoBehaviour
         }
         return Random.Range(0, globalVars.gameDesc.Length);
     }
+    private void displayControls()
+    {
+        if (globalVars.controls[gameIndex].Contains("U"))
+        {
+            directions.transform.GetChild(0).gameObject.SetActive(true);
+            showControls = true;
+        }
+        else
+            directions.transform.GetChild(0).gameObject.SetActive(false);
+
+        if (globalVars.controls[gameIndex].Contains("D"))
+        {
+            directions.transform.GetChild(1).gameObject.SetActive(true);
+            showControls = true;
+        }
+        else
+            directions.transform.GetChild(1).gameObject.SetActive(false);
+
+        if (globalVars.controls[gameIndex].Contains("L"))
+        {
+            directions.transform.GetChild(2).gameObject.SetActive(true);
+            showControls = true;
+        }
+        else
+            directions.transform.GetChild(2).gameObject.SetActive(false);
+
+        if (globalVars.controls[gameIndex].Contains("R"))
+        {
+            directions.transform.GetChild(3).gameObject.SetActive(true);
+            showControls = true;
+        }
+        else
+            directions.transform.GetChild(3).gameObject.SetActive(false);
+
+        if (globalVars.controls[gameIndex].Contains("A"))
+            action.SetActive(true);
+        else
+            action.SetActive(false);
+        if (showControls)
+        {
+            directions.SetActive(true);
+        }
+        else
+            directions.SetActive(false);
+    }
 
     private void FixedUpdate()
     {
         // times text appearing on screen with the music
         speedup = globalVars.score / speedUpMult + 1f;
         timer += Time.fixedDeltaTime;
-        if(timer >= 8.4f / speedup)
+        if(timer >= 8.6f / speedup)
         {
             SceneManager.LoadScene(index);
         }
         else if (timer >= 8f / speedup)
         {
-            // large cause of errors: when you add a new game make SURE to add a game description string to the array in globalVars
+            dispControls.SetActive(true);
+            displayControls();
             box.text = globalVars.gameDesc[gameIndex];
+            
         }
         else if (timer >= 5.25f / speedup)
         {

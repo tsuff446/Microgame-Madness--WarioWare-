@@ -21,9 +21,26 @@ public class globalVars
         "Press if True!",
         "Jump",
         "Hit the Target",
-        "Copy",
+ //       "Copy",
         "Find the Match",
         "Don't Get Hit"
+    };
+    public static string[] controls =
+    {
+        "LR",
+        "UDA",
+        "A",
+        "UD",
+        "RA",
+        "LR",
+        "UD",
+        "LR",
+        "A",
+        "LRA",
+        "LRUDA",
+ //       "LRUD",
+        "LRUDA",
+        "LRUD"
     };
     //0 is singleplayer, 1 is practice, 2 is multiplayer
     public static int gameMode = 0;
